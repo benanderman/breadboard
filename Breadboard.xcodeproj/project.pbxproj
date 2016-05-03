@@ -17,6 +17,9 @@
 		B505761B1CD7E6430027FC58 /* CircuitNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B505761A1CD7E6430027FC58 /* CircuitNode.swift */; };
 		B505761D1CD7FDA40027FC58 /* Resistor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B505761C1CD7FDA40027FC58 /* Resistor.swift */; };
 		B505761F1CD80EF70027FC58 /* CircuitNodeGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = B505761E1CD80EF70027FC58 /* CircuitNodeGrid.swift */; };
+		B543F89B1CD8755400ABB3DA /* BreadboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543F89A1CD8755400ABB3DA /* BreadboardView.swift */; };
+		B543F89D1CD8778B00ABB3DA /* CircuitGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543F89C1CD8778B00ABB3DA /* CircuitGridView.swift */; };
+		B543F89F1CD878BB00ABB3DA /* PlugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543F89E1CD878BB00ABB3DA /* PlugView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		B505761A1CD7E6430027FC58 /* CircuitNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitNode.swift; sourceTree = "<group>"; };
 		B505761C1CD7FDA40027FC58 /* Resistor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resistor.swift; sourceTree = "<group>"; };
 		B505761E1CD80EF70027FC58 /* CircuitNodeGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitNodeGrid.swift; sourceTree = "<group>"; };
+		B543F89A1CD8755400ABB3DA /* BreadboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadboardView.swift; sourceTree = "<group>"; };
+		B543F89C1CD8778B00ABB3DA /* CircuitGridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitGridView.swift; sourceTree = "<group>"; };
+		B543F89E1CD878BB00ABB3DA /* PlugView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlugView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,12 +71,15 @@
 			isa = PBXGroup;
 			children = (
 				B50576041CD7CBA50027FC58 /* AppDelegate.swift */,
-				B50576061CD7CBA50027FC58 /* ViewController.swift */,
+				B543F89A1CD8755400ABB3DA /* BreadboardView.swift */,
+				B543F89C1CD8778B00ABB3DA /* CircuitGridView.swift */,
+				B543F89E1CD878BB00ABB3DA /* PlugView.swift */,
 				B50576161CD7CE920027FC58 /* Breadboard.swift */,
 				B505761E1CD80EF70027FC58 /* CircuitNodeGrid.swift */,
 				B505761A1CD7E6430027FC58 /* CircuitNode.swift */,
 				B50576181CD7E1EB0027FC58 /* Component.swift */,
 				B505761C1CD7FDA40027FC58 /* Resistor.swift */,
+				B50576061CD7CBA50027FC58 /* ViewController.swift */,
 				B50576081CD7CBA50027FC58 /* Main.storyboard */,
 				B505760B1CD7CBA50027FC58 /* Assets.xcassets */,
 				B505760D1CD7CBA50027FC58 /* LaunchScreen.storyboard */,
@@ -150,8 +159,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B543F89D1CD8778B00ABB3DA /* CircuitGridView.swift in Sources */,
+				B543F89B1CD8755400ABB3DA /* BreadboardView.swift in Sources */,
 				B505761D1CD7FDA40027FC58 /* Resistor.swift in Sources */,
 				B50576071CD7CBA50027FC58 /* ViewController.swift in Sources */,
+				B543F89F1CD878BB00ABB3DA /* PlugView.swift in Sources */,
 				B50576191CD7E1EB0027FC58 /* Component.swift in Sources */,
 				B505761F1CD80EF70027FC58 /* CircuitNodeGrid.swift in Sources */,
 				B50576051CD7CBA50027FC58 /* AppDelegate.swift in Sources */,
@@ -306,6 +318,7 @@
 				B50576151CD7CBA50027FC58 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

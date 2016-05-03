@@ -9,10 +9,20 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+  @IBOutlet weak var breadboardContainerView: UIView!
+  
+  var breadboard: Breadboard!
+  var breadboardView: BreadboardView!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+  }
+  
+  override func viewDidAppear(animated: Bool) {
+    let size = breadboardContainerView.frame.size
+    breadboard = Breadboard(width: UInt(size.width / PlugView.plugSize), height: UInt(size.height / PlugView.plugSize))
+    breadboardView = BreadboardView(breadboard: breadboard)
+    breadboardContainerView.addSubview(breadboardView)
   }
 
   override func didReceiveMemoryWarning() {

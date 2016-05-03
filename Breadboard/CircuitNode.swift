@@ -8,7 +8,18 @@
 
 import Foundation
 
-class CircuitNode {
+class CircuitNode: Hashable, Equatable {
+  static private var hashCount = 0
+  var id: String
+  
+  init() {
+    id = "CircuitNode\(CircuitNode.hashCount)"
+    CircuitNode.hashCount += 1
+  }
+  
+  var hashValue: Int {
+    return id.hash
+  }
   
   // It would be nice for this to be a Set, but then CircuitNode has to be Hashable
   var connections = [CircuitNode]()
@@ -16,6 +27,9 @@ class CircuitNode {
   func connect(node: CircuitNode) {
     guard connections.contains({$0 === node}) else { return }
     connections.append(node)
+    
+    // This creates a circular reference, which should be fixed by using IDs instead of
+    // direct references, and then keeping a lookup table of ID->node
     node.connect(self)
   }
   
@@ -39,4 +53,8 @@ class CircuitNode {
     // TODO: Actually implement this
     return (connected: false, resistance: 0)
   }
+}
+
+func ==(lhs: CircuitNode, rhs: CircuitNode) -> Bool {
+  return lhs === rhs
 }

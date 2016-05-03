@@ -15,10 +15,15 @@ class CircuitNodeGrid {
     case None
   }
   
+  let width: UInt
+  let height: UInt
+  
   var columns: [[CircuitNode]]
   var connectionGroups: [CircuitNode]
   
   init(width: UInt, height: UInt, connectionType: GridConnectionType) {
+    self.width = width
+    self.height = height
     columns = [[CircuitNode]]()
     for _ in 0 ..< width {
       let column = (0 ..< height).map { _ in CircuitNode() }

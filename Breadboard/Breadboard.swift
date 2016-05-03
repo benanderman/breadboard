@@ -26,8 +26,10 @@ class Breadboard {
     leftPowerRail.columns[0][1].connect(powerNode)
     rightPowerRail.columns[0][1].connect(powerNode)
     
-    leftRows = CircuitNodeGrid(width: (width - 4) / 2, height: height, connectionType: .Rows)
-    rightRows = CircuitNodeGrid(width: (width - 4) / 2, height: height, connectionType: .Rows)
+    // 3 is for padding between the 4 grids
+    let sizeLeft = leftPowerRail.width + rightPowerRail.width + 3
+    leftRows = CircuitNodeGrid(width: sizeLeft / 2, height: height, connectionType: .Rows)
+    rightRows = CircuitNodeGrid(width: sizeLeft / 2, height: height, connectionType: .Rows)
   }
   
 }
