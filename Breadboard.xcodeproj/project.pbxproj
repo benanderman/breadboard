@@ -16,6 +16,7 @@
 		B50576191CD7E1EB0027FC58 /* Component.swift in Sources */ = {isa = PBXBuildFile; fileRef = B50576181CD7E1EB0027FC58 /* Component.swift */; };
 		B505761B1CD7E6430027FC58 /* CircuitNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = B505761A1CD7E6430027FC58 /* CircuitNode.swift */; };
 		B505761D1CD7FDA40027FC58 /* Resistor.swift in Sources */ = {isa = PBXBuildFile; fileRef = B505761C1CD7FDA40027FC58 /* Resistor.swift */; };
+		B505761F1CD80EF70027FC58 /* CircuitNodeGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = B505761E1CD80EF70027FC58 /* CircuitNodeGrid.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		B50576181CD7E1EB0027FC58 /* Component.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Component.swift; sourceTree = "<group>"; };
 		B505761A1CD7E6430027FC58 /* CircuitNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitNode.swift; sourceTree = "<group>"; };
 		B505761C1CD7FDA40027FC58 /* Resistor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resistor.swift; sourceTree = "<group>"; };
+		B505761E1CD80EF70027FC58 /* CircuitNodeGrid.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitNodeGrid.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				B50576041CD7CBA50027FC58 /* AppDelegate.swift */,
 				B50576061CD7CBA50027FC58 /* ViewController.swift */,
 				B50576161CD7CE920027FC58 /* Breadboard.swift */,
+				B505761E1CD80EF70027FC58 /* CircuitNodeGrid.swift */,
 				B505761A1CD7E6430027FC58 /* CircuitNode.swift */,
 				B50576181CD7E1EB0027FC58 /* Component.swift */,
 				B505761C1CD7FDA40027FC58 /* Resistor.swift */,
@@ -150,6 +153,7 @@
 				B505761D1CD7FDA40027FC58 /* Resistor.swift in Sources */,
 				B50576071CD7CBA50027FC58 /* ViewController.swift in Sources */,
 				B50576191CD7E1EB0027FC58 /* Component.swift in Sources */,
+				B505761F1CD80EF70027FC58 /* CircuitNodeGrid.swift in Sources */,
 				B50576051CD7CBA50027FC58 /* AppDelegate.swift in Sources */,
 				B50576171CD7CE920027FC58 /* Breadboard.swift in Sources */,
 				B505761B1CD7E6430027FC58 /* CircuitNode.swift in Sources */,
