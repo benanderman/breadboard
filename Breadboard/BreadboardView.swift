@@ -74,6 +74,7 @@ class BreadboardView: UIView {
         pendingComponentView?.removeFromSuperview()
       }
     }
+    pendingComponentView?.connect()
     pendingComponentView = nil
   }
   

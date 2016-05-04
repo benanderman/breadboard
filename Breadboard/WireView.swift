@@ -14,9 +14,7 @@ class WireView: ComponentView {
   
   init(wire: Wire) {
     self.wire = wire
-    super.init(frame: CGRectZero)
-    self.backgroundColor = UIColor.clearColor()
-    self.userInteractionEnabled = false
+    super.init(component: wire)
   }
   
   required init?(coder aDecoder: NSCoder) {

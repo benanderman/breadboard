@@ -12,6 +12,8 @@ import UIKit
 class ComponentView: UIView {
   static let padding = CGFloat(5)
   
+  let component: Component
+  
   var node1: PlugView? {
     didSet {
       pointChanged()
@@ -40,6 +42,27 @@ class ComponentView: UIView {
   
   var localPoint1 = CGPointZero
   var localPoint2 = CGPointZero
+  
+  init(component: Component) {
+    self.component = component
+    super.init(frame: CGRectZero)
+    self.backgroundColor = UIColor.clearColor()
+    self.userInteractionEnabled = false
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
+  
+  func connect() {
+    node1?.node.connect(component.node1)
+    node2?.node.connect(component.node2)
+  }
+  
+  func disconnect() {
+    node1?.node.disconnect(component.node1)
+    node2?.node.disconnect(component.node2)
+  }
   
   func pointChanged() {
     if let node = node1 {
