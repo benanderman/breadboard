@@ -15,6 +15,7 @@ class BreadboardView: UIView {
   var selectedTool = "Wire"
   
   var pendingComponentView: ComponentView?
+  var draggingPoint = 2 // Which point on the pendingComponentView we're dragging; 1 or 2
   
   init(breadboard: Breadboard) {
     self.breadboard = breadboard
@@ -47,7 +48,7 @@ class BreadboardView: UIView {
     return nil
   }
   
-  func componentViewForTool(tool: String) -> ComponentView {
+  static func componentViewForTool(tool: String) -> ComponentView {
     switch tool {
     case "Wire":
       return WireView(wire: Wire())
@@ -62,34 +63,50 @@ class BreadboardView: UIView {
   
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
     guard touches.count == 1 && pendingComponentView == nil else { return }
-    guard let plugView = touches.first!.view as? PlugView else { return}
+    let point = touches.first!.locationInView(self)
+    guard let plugView = plugViewForPoint(point) else { return}
     
-    let componentView = componentViewForTool(selectedTool)
+    var componentView = plugView.connectedComponent
+    if let view = componentView {
+      draggingPoint = view.node1 === plugView ? 1 : 2
+      view.disconnect()
+    } else {
+      draggingPoint = 2
+      componentView = BreadboardView.componentViewForTool(selectedTool)
+      addSubview(componentView!)
+      componentView?.node1 = plugView
+      componentView?.point2 = point
+    }
     pendingComponentView = componentView
-    addSubview(componentView)
-    pendingComponentView?.node1 = plugView
-    pendingComponentView?.point2 = touches.first!.locationInView(self)
   }
   
   override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
-    guard touches.count == 1 && pendingComponentView != nil else { return }
+    guard let view = pendingComponentView where touches.count == 1 else { return }
     let point = touches.first!.locationInView(self)
-    if let plugView = plugViewForPoint(point) where plugView !== pendingComponentView?.node1 {
-      pendingComponentView?.node2 = plugView
+    var newNode: PlugView? = nil
+    if let plugView = plugViewForPoint(point) {
+      if plugView !== (draggingPoint == 1 ? view.node2 : view.node1) && plugView.connectedComponent == nil {
+        newNode = plugView
+      }
+    }
+    if draggingPoint == 1 {
+      view.node1 = newNode
+      view.point1 = point
     } else {
-      pendingComponentView?.node2 = nil
-      pendingComponentView?.point2 = touches.first!.locationInView(self)
+      view.node2 = newNode
+      view.point2 = point
     }
   }
   
   override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
     if let view = pendingComponentView {
-      if view.node2 == nil {
+      if view.node1 != nil && view.node2 != nil {
+        pendingComponentView?.connect()
+      } else {
         pendingComponentView?.removeFromSuperview()
       }
+      pendingComponentView = nil
     }
-    pendingComponentView?.connect()
-    pendingComponentView = nil
   }
   
   override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {

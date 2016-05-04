@@ -41,7 +41,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
   }
   
   func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-    let cell = collectionView.dequeueReusableCellWithReuseIdentifier(toolIDs[indexPath.item], forIndexPath: indexPath)
+    let tool = toolIDs[indexPath.item]
+    let cell = collectionView.dequeueReusableCellWithReuseIdentifier(tool, forIndexPath: indexPath)
+    for view in cell.subviews {
+      view.removeFromSuperview()
+    }
+    let componentView = BreadboardView.componentViewForTool(tool)
+    cell.addSubview(componentView)
+    componentView.point1 = CGPoint(x: 5, y: cell.frame.size.height - 5)
+    componentView.point2 = CGPoint(x: cell.frame.size.width - 5, y: 5)
+    
     return cell
   }
   

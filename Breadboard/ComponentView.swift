@@ -57,11 +57,15 @@ class ComponentView: UIView {
   func connect() {
     node1?.node.connect(component.node1)
     node2?.node.connect(component.node2)
+    node1?.connectedComponent = self
+    node2?.connectedComponent = self
   }
   
   func disconnect() {
     node1?.node.disconnect(component.node1)
     node2?.node.disconnect(component.node2)
+    node1?.connectedComponent = nil
+    node2?.connectedComponent = nil
   }
   
   func pointChanged() {

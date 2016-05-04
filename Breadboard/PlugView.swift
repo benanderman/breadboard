@@ -14,6 +14,8 @@ class PlugView: UIView {
   
   let node: CircuitNode
   
+  var connectedComponent: ComponentView?
+  
   init(node: CircuitNode) {
     self.node = node
     super.init(frame: CGRect(x: 0, y: 0, width: PlugView.plugSize, height: PlugView.plugSize))
