@@ -64,7 +64,7 @@ class BreadboardView: UIView {
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
     guard touches.count == 1 && pendingComponentView == nil else { return }
     let point = touches.first!.locationInView(self)
-    guard let plugView = plugViewForPoint(point) else { return}
+    guard let plugView = plugViewForPoint(point) else { return }
     
     var componentView = plugView.connectedComponent
     if let view = componentView {

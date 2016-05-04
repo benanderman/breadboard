@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 
 class ComponentView: UIView {
-  static let padding = CGFloat(5)
+  static let wireWidth = CGFloat(3)
+  static let padding = wireWidth * 2
   
   let component: Component
   
@@ -91,7 +92,7 @@ class ComponentView: UIView {
     let context = UIGraphicsGetCurrentContext()
     
     CGContextSetStrokeColorWithColor(context, wireColor.CGColor)
-    CGContextSetLineWidth(context, 3)
+    CGContextSetLineWidth(context, ComponentView.wireWidth)
     CGContextMoveToPoint(context, localPoint1.x, localPoint1.y)
     
     let width = localPoint2.x - localPoint1.x
@@ -118,7 +119,7 @@ class ComponentView: UIView {
       
       CGContextMoveToPoint(context, midPoint2.x, midPoint2.y)
       CGContextSetStrokeColorWithColor(context, wireColor.CGColor)
-      CGContextSetLineWidth(context, 3)
+      CGContextSetLineWidth(context, ComponentView.wireWidth)
       CGContextAddLineToPoint(context, localPoint2.x, localPoint2.y)
       CGContextDrawPath(context, .Stroke)
     }
