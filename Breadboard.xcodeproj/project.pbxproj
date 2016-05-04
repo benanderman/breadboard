@@ -20,6 +20,10 @@
 		B543F89B1CD8755400ABB3DA /* BreadboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543F89A1CD8755400ABB3DA /* BreadboardView.swift */; };
 		B543F89D1CD8778B00ABB3DA /* CircuitGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543F89C1CD8778B00ABB3DA /* CircuitGridView.swift */; };
 		B543F89F1CD878BB00ABB3DA /* PlugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543F89E1CD878BB00ABB3DA /* PlugView.swift */; };
+		B5CD4B1C1CD9375C00003D12 /* Wire.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CD4B1B1CD9375C00003D12 /* Wire.swift */; };
+		B5CD4B1E1CD9377B00003D12 /* LED.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CD4B1D1CD9377B00003D12 /* LED.swift */; };
+		B5CD4B201CD93A1700003D12 /* ComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CD4B1F1CD93A1700003D12 /* ComponentView.swift */; };
+		B5CD4B221CD9544000003D12 /* WireView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CD4B211CD9544000003D12 /* WireView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		B543F89A1CD8755400ABB3DA /* BreadboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadboardView.swift; sourceTree = "<group>"; };
 		B543F89C1CD8778B00ABB3DA /* CircuitGridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitGridView.swift; sourceTree = "<group>"; };
 		B543F89E1CD878BB00ABB3DA /* PlugView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlugView.swift; sourceTree = "<group>"; };
+		B5CD4B1B1CD9375C00003D12 /* Wire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wire.swift; sourceTree = "<group>"; };
+		B5CD4B1D1CD9377B00003D12 /* LED.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LED.swift; sourceTree = "<group>"; };
+		B5CD4B1F1CD93A1700003D12 /* ComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentView.swift; sourceTree = "<group>"; };
+		B5CD4B211CD9544000003D12 /* WireView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WireView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,11 +82,15 @@
 				B543F89A1CD8755400ABB3DA /* BreadboardView.swift */,
 				B543F89C1CD8778B00ABB3DA /* CircuitGridView.swift */,
 				B543F89E1CD878BB00ABB3DA /* PlugView.swift */,
+				B5CD4B1F1CD93A1700003D12 /* ComponentView.swift */,
+				B5CD4B211CD9544000003D12 /* WireView.swift */,
 				B50576161CD7CE920027FC58 /* Breadboard.swift */,
 				B505761E1CD80EF70027FC58 /* CircuitNodeGrid.swift */,
 				B505761A1CD7E6430027FC58 /* CircuitNode.swift */,
 				B50576181CD7E1EB0027FC58 /* Component.swift */,
 				B505761C1CD7FDA40027FC58 /* Resistor.swift */,
+				B5CD4B1B1CD9375C00003D12 /* Wire.swift */,
+				B5CD4B1D1CD9377B00003D12 /* LED.swift */,
 				B50576061CD7CBA50027FC58 /* ViewController.swift */,
 				B50576081CD7CBA50027FC58 /* Main.storyboard */,
 				B505760B1CD7CBA50027FC58 /* Assets.xcassets */,
@@ -160,15 +172,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				B543F89D1CD8778B00ABB3DA /* CircuitGridView.swift in Sources */,
+				B5CD4B1E1CD9377B00003D12 /* LED.swift in Sources */,
 				B543F89B1CD8755400ABB3DA /* BreadboardView.swift in Sources */,
 				B505761D1CD7FDA40027FC58 /* Resistor.swift in Sources */,
 				B50576071CD7CBA50027FC58 /* ViewController.swift in Sources */,
 				B543F89F1CD878BB00ABB3DA /* PlugView.swift in Sources */,
 				B50576191CD7E1EB0027FC58 /* Component.swift in Sources */,
+				B5CD4B221CD9544000003D12 /* WireView.swift in Sources */,
+				B5CD4B201CD93A1700003D12 /* ComponentView.swift in Sources */,
 				B505761F1CD80EF70027FC58 /* CircuitNodeGrid.swift in Sources */,
 				B50576051CD7CBA50027FC58 /* AppDelegate.swift in Sources */,
 				B50576171CD7CE920027FC58 /* Breadboard.swift in Sources */,
 				B505761B1CD7E6430027FC58 /* CircuitNode.swift in Sources */,
+				B5CD4B1C1CD9375C00003D12 /* Wire.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -12,6 +12,8 @@ import UIKit
 class BreadboardView: UIView {
   let breadboard: Breadboard
   
+  var pendingComponentView: ComponentView?
+  
   init(breadboard: Breadboard) {
     self.breadboard = breadboard
     let grids = [breadboard.leftPowerRail, breadboard.leftRows, breadboard.rightRows, breadboard.rightPowerRail]
@@ -32,4 +34,51 @@ class BreadboardView: UIView {
     fatalError("init(coder:) has not been implemented")
   }
   
+  func plugViewForPoint(point: CGPoint) -> PlugView? {
+    for view in subviews {
+      guard let gridView = view as? CircuitGridView else { continue }
+      let plugView = gridView.plugViewForPoint(gridView.convertPoint(point, fromView: self))
+      if plugView != nil {
+        return plugView
+      }
+    }
+    return nil
+  }
+  
+  override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    guard touches.count == 1 && pendingComponentView == nil else { return }
+    guard let plugView = touches.first!.view as? PlugView else { return}
+    
+    let wire = Wire()
+    let wireView = WireView(wire: wire)
+    pendingComponentView = wireView
+    addSubview(wireView)
+    pendingComponentView?.node1 = plugView
+    pendingComponentView?.point2 = touches.first!.locationInView(self)
+  }
+  
+  override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    guard touches.count == 1 && pendingComponentView != nil else { return }
+    let point = touches.first!.locationInView(self)
+    if let plugView = plugViewForPoint(point) {
+      pendingComponentView?.node2 = plugView
+    } else {
+      pendingComponentView?.node2 = nil
+      pendingComponentView?.point2 = touches.first!.locationInView(self)
+    }
+  }
+  
+  override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+    if let view = pendingComponentView {
+      if view.node2 == nil {
+        pendingComponentView?.removeFromSuperview()
+      }
+    }
+    pendingComponentView = nil
+  }
+  
+  override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
+    pendingComponentView?.removeFromSuperview()
+    pendingComponentView = nil
+  }
 }
