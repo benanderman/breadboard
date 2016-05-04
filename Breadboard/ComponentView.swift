@@ -82,4 +82,41 @@ class ComponentView: UIView {
     
     setNeedsDisplay()
   }
+  
+  func drawWireWithMidsection(wireColor wireColor: UIColor, midSize: CGSize, midColor: UIColor) {
+    let context = UIGraphicsGetCurrentContext()
+    
+    CGContextSetStrokeColorWithColor(context, wireColor.CGColor)
+    CGContextSetLineWidth(context, 3)
+    CGContextMoveToPoint(context, localPoint1.x, localPoint1.y)
+    
+    let width = localPoint2.x - localPoint1.x
+    let height = localPoint2.y - localPoint1.y
+    let length = sqrt(abs(width) * abs(width) + abs(height) * abs(height))
+    let midPortion = midSize.width / length
+    
+    if midSize.width == 0 || length < midSize.width {
+      CGContextAddLineToPoint(context, localPoint2.x, localPoint2.y)
+      CGContextDrawPath(context, .Stroke)
+    } else {
+      let sidePortion = (0.5 - midPortion / 2)
+      let midPoint1 = CGPoint(x: localPoint1.x + width * sidePortion, y: localPoint1.y + height * sidePortion)
+      let midPoint2 = CGPoint(x: midPoint1.x + width * midPortion, y: midPoint1.y + height * midPortion)
+      
+      CGContextAddLineToPoint(context, midPoint1.x, midPoint1.y)
+      CGContextDrawPath(context, .Stroke)
+      
+      CGContextMoveToPoint(context, midPoint1.x, midPoint1.y)
+      CGContextSetStrokeColorWithColor(context, midColor.CGColor)
+      CGContextSetLineWidth(context, midSize.height)
+      CGContextAddLineToPoint(context, midPoint2.x, midPoint2.y)
+      CGContextDrawPath(context, .Stroke)
+      
+      CGContextMoveToPoint(context, midPoint2.x, midPoint2.y)
+      CGContextSetStrokeColorWithColor(context, wireColor.CGColor)
+      CGContextSetLineWidth(context, 3)
+      CGContextAddLineToPoint(context, localPoint2.x, localPoint2.y)
+      CGContextDrawPath(context, .Stroke)
+    }
+  }
 }

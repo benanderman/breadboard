@@ -22,13 +22,6 @@ class WireView: ComponentView {
   }
   
   override func drawRect(rect: CGRect) {
-    let context = UIGraphicsGetCurrentContext()
-    
-    CGContextSetStrokeColorWithColor(context, UIColor.greenColor().CGColor)
-    CGContextSetLineWidth(context, 3)
-    
-    CGContextMoveToPoint(context, localPoint1.x, localPoint1.y)
-    CGContextAddLineToPoint(context, localPoint2.x, localPoint2.y)
-    CGContextDrawPath(context, .Stroke)
+    drawWireWithMidsection(wireColor: UIColor.greenColor(), midSize: CGSizeZero, midColor: UIColor.greenColor())
   }
 }

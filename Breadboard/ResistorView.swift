@@ -22,13 +22,6 @@ class ResistorView: ComponentView {
   }
   
   override func drawRect(rect: CGRect) {
-    let context = UIGraphicsGetCurrentContext()
-    
-    CGContextSetStrokeColorWithColor(context, UIColor.brownColor().CGColor)
-    CGContextSetLineWidth(context, 3)
-    
-    CGContextMoveToPoint(context, localPoint1.x, localPoint1.y)
-    CGContextAddLineToPoint(context, localPoint2.x, localPoint2.y)
-    CGContextDrawPath(context, .Stroke)
+    drawWireWithMidsection(wireColor: UIColor.grayColor(), midSize: CGSize(width: 20, height: 8), midColor: UIColor.brownColor())
   }
 }
