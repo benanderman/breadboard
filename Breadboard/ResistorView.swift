@@ -12,9 +12,9 @@ import UIKit
 class ResistorView: ComponentView {
   let resistor: Resistor
   
-  init(resistor: Resistor) {
+  init(resistor: Resistor, breadboardView: BreadboardView?) {
     self.resistor = resistor
-    super.init(component: resistor)
+    super.init(component: resistor, breadboardView: breadboardView)
   }
   
   required init?(coder aDecoder: NSCoder) {

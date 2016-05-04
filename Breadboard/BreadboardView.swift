@@ -26,7 +26,7 @@ class BreadboardView: UIView {
     
     var point = CGPointZero
     for grid in grids {
-      let view = CircuitGridView(grid: grid)
+      let view = CircuitGridView(grid: grid, breadboardView: self)
       self.addSubview(view)
       view.frame.origin = point
       point.x += view.frame.size.width + PlugView.plugSize
@@ -48,16 +48,16 @@ class BreadboardView: UIView {
     return nil
   }
   
-  static func componentViewForTool(tool: String) -> ComponentView {
+  static func componentViewForTool(tool: String, breadboardView: BreadboardView?) -> ComponentView {
     switch tool {
     case "Wire":
-      return WireView(wire: Wire())
+      return WireView(wire: Wire(), breadboardView: breadboardView)
     case "Resistor":
-      return ResistorView(resistor: Resistor())
+      return ResistorView(resistor: Resistor(), breadboardView: breadboardView)
     case "LED":
-      return LEDView(led: LED())
+      return LEDView(led: LED(), breadboardView: breadboardView)
     default:
-      return WireView(wire: Wire())
+      return WireView(wire: Wire(), breadboardView: breadboardView)
     }
   }
   
@@ -70,9 +70,10 @@ class BreadboardView: UIView {
     if let view = componentView {
       draggingPoint = view.node1 === plugView ? 1 : 2
       view.disconnect()
+      breadboard.updateCircuitConnections()
     } else {
       draggingPoint = 2
-      componentView = BreadboardView.componentViewForTool(selectedTool)
+      componentView = BreadboardView.componentViewForTool(selectedTool, breadboardView: self)
       addSubview(componentView!)
       componentView?.node1 = plugView
       componentView?.point2 = point
@@ -102,6 +103,7 @@ class BreadboardView: UIView {
     if let view = pendingComponentView {
       if view.node1 != nil && view.node2 != nil {
         pendingComponentView?.connect()
+        breadboard.updateCircuitConnections()
       } else {
         pendingComponentView?.removeFromSuperview()
       }

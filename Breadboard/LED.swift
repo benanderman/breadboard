@@ -9,5 +9,7 @@
 import Foundation
 
 class LED: Component {
-  
+  override init(node1: CircuitNode, node2: CircuitNode, connect: Bool = false) {
+    super.init(node1: node1, node2: node2, connect: false)
+  }
 }

@@ -12,9 +12,9 @@ import UIKit
 class WireView: ComponentView {
   let wire: Wire
   
-  init(wire: Wire) {
+  init(wire: Wire, breadboardView: BreadboardView?) {
     self.wire = wire
-    super.init(component: wire)
+    super.init(component: wire, breadboardView: breadboardView)
   }
   
   required init?(coder aDecoder: NSCoder) {

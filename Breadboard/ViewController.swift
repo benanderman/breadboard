@@ -46,7 +46,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     for view in cell.subviews {
       view.removeFromSuperview()
     }
-    let componentView = BreadboardView.componentViewForTool(tool)
+    let componentView = BreadboardView.componentViewForTool(tool, breadboardView: nil)
     cell.addSubview(componentView)
     componentView.point1 = CGPoint(x: 5, y: cell.frame.size.height - 5)
     componentView.point2 = CGPoint(x: cell.frame.size.width - 5, y: 5)

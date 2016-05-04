@@ -18,9 +18,11 @@ class Component {
     self.init(node1: node1, node2: node2)
   }
   
-  init(node1: CircuitNode, node2: CircuitNode) {
+  init(node1: CircuitNode, node2: CircuitNode, connect: Bool = true) {
     self.node1 = node1
     self.node2 = node2
-    self.node1.connect(self.node2)
+    if connect {
+      self.node1.connect(self.node2)
+    }
   }
 }

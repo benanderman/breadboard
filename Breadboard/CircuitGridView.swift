@@ -12,14 +12,16 @@ import UIKit
 class CircuitGridView: UIView {
   
   let grid: CircuitNodeGrid
+  weak var breadboardView: BreadboardView!
   
-  init(grid: CircuitNodeGrid) {
+  init(grid: CircuitNodeGrid, breadboardView: BreadboardView) {
     self.grid = grid
+    self.breadboardView = breadboardView
     super.init(frame: CGRect(x: 0, y: 0, width: CGFloat(grid.width) * PlugView.plugSize, height: CGFloat(grid.height) * PlugView.plugSize))
     var point = CGPointZero
     for column in grid.columns {
       for node in column {
-        let view = PlugView(node: node)
+        let view = PlugView(node: node, breadboardView: breadboardView)
         view.frame.origin = point
         point.y += PlugView.plugSize
         self.addSubview(view)

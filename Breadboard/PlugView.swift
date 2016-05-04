@@ -13,19 +13,30 @@ class PlugView: UIView {
   static let plugSize = CGFloat(24)
   
   let node: CircuitNode
+  weak var breadboardView: BreadboardView!
   
   var connectedComponent: ComponentView?
   
-  init(node: CircuitNode) {
+  init(node: CircuitNode, breadboardView: BreadboardView) {
     self.node = node
+    self.breadboardView = breadboardView
     super.init(frame: CGRect(x: 0, y: 0, width: PlugView.plugSize, height: PlugView.plugSize))
     backgroundColor = UIColor.clearColor()
+    
+    NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(setNeedsDisplay), name: Breadboard.kCircuitUpdatedNotificationName, object: nil)
+  }
+  
+  deinit {
+    NSNotificationCenter.defaultCenter().removeObserver(self)
   }
   
   override func drawRect(rect: CGRect) {
     let context = UIGraphicsGetCurrentContext()
     
-    CGContextSetFillColorWithColor(context, UIColor(white: 0.9, alpha: 1.0).CGColor)
+    let powered = breadboardView.breadboard.powerConnectedNodes.keys.contains(node) ? CGFloat(0.2) : 0
+    let grounded = breadboardView.breadboard.groundConnectedNodes.keys.contains(node) ? CGFloat(0.2) : 0
+    let fillColor = UIColor(red: 0.8 + powered, green: 0.8, blue: 0.8 + grounded, alpha: 1.0)
+    CGContextSetFillColorWithColor(context, fillColor.CGColor)
     CGContextSetStrokeColorWithColor(context, UIColor(white: 0.3, alpha: 1.0).CGColor)
     CGContextSetLineWidth(context, 2)
     

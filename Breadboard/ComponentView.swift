@@ -15,6 +15,8 @@ class ComponentView: UIView {
   
   let component: Component
   
+  weak var breadboardView: BreadboardView?
+  
   var node1: PlugView? {
     didSet {
       pointChanged()
@@ -44,8 +46,9 @@ class ComponentView: UIView {
   var localPoint1 = CGPointZero
   var localPoint2 = CGPointZero
   
-  init(component: Component) {
+  init(component: Component, breadboardView: BreadboardView?) {
     self.component = component
+    self.breadboardView = breadboardView
     super.init(frame: CGRectZero)
     self.backgroundColor = UIColor.clearColor()
     self.userInteractionEnabled = false

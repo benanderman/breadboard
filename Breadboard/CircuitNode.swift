@@ -22,24 +22,18 @@ class CircuitNode: Hashable, Equatable {
   }
   
   // It would be nice for this to be a Set, but then CircuitNode has to be Hashable
-  var connections = [CircuitNode]()
+  var connections = NSHashTable.weakObjectsHashTable()
   
   func connect(node: CircuitNode) {
-    guard connections.contains({$0 === node}) else { return }
-    connections.append(node)
-    
-    // This creates a circular reference, which should be fixed by using IDs instead of
-    // direct references, and then keeping a lookup table of ID->node
+    guard !connections.containsObject(node) else { return }
+    connections.addObject(node)
     node.connect(self)
   }
   
   func disconnect(node: CircuitNode) {
-    for (i, connection) in connections.enumerate() {
-      if connection === node {
-        connections.removeAtIndex(i)
-        connection.disconnect(self)
-        break
-      }
+    if connections.containsObject(node) {
+      connections.removeObject(node)
+      node.disconnect(self)
     }
   }
   
