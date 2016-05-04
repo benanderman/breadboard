@@ -12,6 +12,8 @@ import UIKit
 class BreadboardView: UIView {
   let breadboard: Breadboard
   
+  var selectedTool = "Wire"
+  
   var pendingComponentView: ComponentView?
   
   init(breadboard: Breadboard) {
@@ -45,14 +47,26 @@ class BreadboardView: UIView {
     return nil
   }
   
+  func componentViewForTool(tool: String) -> ComponentView {
+    switch tool {
+    case "Wire":
+      return WireView(wire: Wire())
+    case "Resistor":
+      return ResistorView(resistor: Resistor())
+    case "LED":
+      return LEDView(led: LED())
+    default:
+      return WireView(wire: Wire())
+    }
+  }
+  
   override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
     guard touches.count == 1 && pendingComponentView == nil else { return }
     guard let plugView = touches.first!.view as? PlugView else { return}
     
-    let wire = Wire()
-    let wireView = WireView(wire: wire)
-    pendingComponentView = wireView
-    addSubview(wireView)
+    let componentView = componentViewForTool(selectedTool)
+    pendingComponentView = componentView
+    addSubview(componentView)
     pendingComponentView?.node1 = plugView
     pendingComponentView?.point2 = touches.first!.locationInView(self)
   }
