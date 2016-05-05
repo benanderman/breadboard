@@ -106,6 +106,7 @@
 				B5CD4B211CD9544000003D12 /* WireView.swift */,
 				B5CD4B231CD9B9BB00003D12 /* ResistorView.swift */,
 				B5CD4B251CD9BB1800003D12 /* LEDView.swift */,
+				B5A54A331CDAD52A008DE89E /* ToolCellView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -120,7 +121,6 @@
 				B505761C1CD7FDA40027FC58 /* Resistor.swift */,
 				B5CD4B1B1CD9375C00003D12 /* Wire.swift */,
 				B5CD4B1D1CD9377B00003D12 /* LED.swift */,
-				B5A54A331CDAD52A008DE89E /* ToolCellView.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
