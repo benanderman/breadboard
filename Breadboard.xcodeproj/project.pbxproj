@@ -20,6 +20,7 @@
 		B543F89B1CD8755400ABB3DA /* BreadboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543F89A1CD8755400ABB3DA /* BreadboardView.swift */; };
 		B543F89D1CD8778B00ABB3DA /* CircuitGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543F89C1CD8778B00ABB3DA /* CircuitGridView.swift */; };
 		B543F89F1CD878BB00ABB3DA /* PlugView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B543F89E1CD878BB00ABB3DA /* PlugView.swift */; };
+		B5A54A341CDAD52A008DE89E /* ToolCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5A54A331CDAD52A008DE89E /* ToolCellView.swift */; };
 		B5CD4B1C1CD9375C00003D12 /* Wire.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CD4B1B1CD9375C00003D12 /* Wire.swift */; };
 		B5CD4B1E1CD9377B00003D12 /* LED.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CD4B1D1CD9377B00003D12 /* LED.swift */; };
 		B5CD4B201CD93A1700003D12 /* ComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5CD4B1F1CD93A1700003D12 /* ComponentView.swift */; };
@@ -44,6 +45,7 @@
 		B543F89A1CD8755400ABB3DA /* BreadboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreadboardView.swift; sourceTree = "<group>"; };
 		B543F89C1CD8778B00ABB3DA /* CircuitGridView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircuitGridView.swift; sourceTree = "<group>"; };
 		B543F89E1CD878BB00ABB3DA /* PlugView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlugView.swift; sourceTree = "<group>"; };
+		B5A54A331CDAD52A008DE89E /* ToolCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToolCellView.swift; sourceTree = "<group>"; };
 		B5CD4B1B1CD9375C00003D12 /* Wire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Wire.swift; sourceTree = "<group>"; };
 		B5CD4B1D1CD9377B00003D12 /* LED.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LED.swift; sourceTree = "<group>"; };
 		B5CD4B1F1CD93A1700003D12 /* ComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentView.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				B505761C1CD7FDA40027FC58 /* Resistor.swift */,
 				B5CD4B1B1CD9375C00003D12 /* Wire.swift */,
 				B5CD4B1D1CD9377B00003D12 /* LED.swift */,
+				B5A54A331CDAD52A008DE89E /* ToolCellView.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			files = (
 				B543F89D1CD8778B00ABB3DA /* CircuitGridView.swift in Sources */,
 				B5CD4B1E1CD9377B00003D12 /* LED.swift in Sources */,
+				B5A54A341CDAD52A008DE89E /* ToolCellView.swift in Sources */,
 				B543F89B1CD8755400ABB3DA /* BreadboardView.swift in Sources */,
 				B505761D1CD7FDA40027FC58 /* Resistor.swift in Sources */,
 				B50576071CD7CBA50027FC58 /* ViewController.swift in Sources */,

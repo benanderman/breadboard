@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
   @IBOutlet weak var breadboardContainerView: UIView!
+  @IBOutlet weak var toolCollectionView: UICollectionView!
   
   var breadboard: Breadboard!
   var breadboardView: BreadboardView!
@@ -26,6 +27,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     breadboardView = BreadboardView(breadboard: breadboard)
     breadboardContainerView.addSubview(breadboardView)
     breadboardView.center.x = breadboardContainerView.frame.size.width / 2
+    
+    toolCollectionView.selectItemAtIndexPath(NSIndexPath(forItem: 0, inSection: 0), animated: false, scrollPosition: .None)
   }
 
   override func didReceiveMemoryWarning() {
