@@ -25,6 +25,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     breadboard = Breadboard(width: UInt(size.width / PlugView.plugSize), height: UInt(size.height / PlugView.plugSize))
     breadboardView = BreadboardView(breadboard: breadboard)
     breadboardContainerView.addSubview(breadboardView)
+    breadboardView.center.x = breadboardContainerView.frame.size.width / 2
   }
 
   override func didReceiveMemoryWarning() {

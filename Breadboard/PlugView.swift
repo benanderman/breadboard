@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class PlugView: UIView {
-  static let plugSize = CGFloat(24)
+  static let plugSize = CGFloat(26)
   
   let node: CircuitNode
   weak var breadboardView: BreadboardView!
