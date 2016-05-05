@@ -29,6 +29,7 @@ class CircuitGridView: UIView {
       point.x += PlugView.plugSize
       point.y = 0
     }
+    backgroundColor = UIColor.clearColor()
   }
   
   func plugViewForPoint(point: CGPoint) -> PlugView? {
@@ -37,6 +38,27 @@ class CircuitGridView: UIView {
     let index = Int(x * Int(grid.height) + y)
     guard point.x >= 0 && x < Int(grid.width) && y >= 0 && y < Int(grid.height) && index < subviews.count else { return nil }
     return subviews[index] as? PlugView
+  }
+  
+  override func drawRect(rect: CGRect) {
+    guard grid.connectionType != .None else { return }
+    let context = UIGraphicsGetCurrentContext()
+    
+    CGContextSetStrokeColorWithColor(context, UIColor(white: 0.85, alpha: 1.0).CGColor)
+    CGContextSetLineWidth(context, 1)
+    
+    
+    for i in 0 ..< (grid.connectionType == .Rows ? grid.height : grid.width) {
+      let xOrY = (CGFloat(i) + 0.5) * PlugView.plugSize
+      if grid.connectionType == .Rows {
+        CGContextMoveToPoint(context, PlugView.plugSize / 2, xOrY)
+        CGContextAddLineToPoint(context, (CGFloat(grid.width) - 0.5) * PlugView.plugSize, xOrY)
+      } else {
+        CGContextMoveToPoint(context, xOrY, PlugView.plugSize / 2)
+        CGContextAddLineToPoint(context, xOrY, (CGFloat(grid.height) - 0.5) * PlugView.plugSize)
+      }
+      CGContextDrawPath(context, .Stroke)
+    }
   }
   
   required init?(coder aDecoder: NSCoder) {

@@ -15,6 +15,7 @@ class CircuitNodeGrid {
     case None
   }
   
+  let connectionType: GridConnectionType
   let width: UInt
   let height: UInt
   
@@ -22,6 +23,7 @@ class CircuitNodeGrid {
   var connectionGroups: [CircuitNode]
   
   init(width: UInt, height: UInt, connectionType: GridConnectionType) {
+    self.connectionType = connectionType
     self.width = width
     self.height = height
     columns = [[CircuitNode]]()

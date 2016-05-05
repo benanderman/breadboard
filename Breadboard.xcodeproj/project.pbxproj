@@ -82,21 +82,9 @@
 		B50576031CD7CBA50027FC58 /* Breadboard */ = {
 			isa = PBXGroup;
 			children = (
+				B5A54A321CDAC924008DE89E /* Models */,
+				B5A54A311CDAC915008DE89E /* Views */,
 				B50576041CD7CBA50027FC58 /* AppDelegate.swift */,
-				B543F89A1CD8755400ABB3DA /* BreadboardView.swift */,
-				B543F89C1CD8778B00ABB3DA /* CircuitGridView.swift */,
-				B543F89E1CD878BB00ABB3DA /* PlugView.swift */,
-				B5CD4B1F1CD93A1700003D12 /* ComponentView.swift */,
-				B5CD4B211CD9544000003D12 /* WireView.swift */,
-				B5CD4B231CD9B9BB00003D12 /* ResistorView.swift */,
-				B5CD4B251CD9BB1800003D12 /* LEDView.swift */,
-				B50576161CD7CE920027FC58 /* Breadboard.swift */,
-				B505761E1CD80EF70027FC58 /* CircuitNodeGrid.swift */,
-				B505761A1CD7E6430027FC58 /* CircuitNode.swift */,
-				B50576181CD7E1EB0027FC58 /* Component.swift */,
-				B505761C1CD7FDA40027FC58 /* Resistor.swift */,
-				B5CD4B1B1CD9375C00003D12 /* Wire.swift */,
-				B5CD4B1D1CD9377B00003D12 /* LED.swift */,
 				B50576061CD7CBA50027FC58 /* ViewController.swift */,
 				B50576081CD7CBA50027FC58 /* Main.storyboard */,
 				B505760B1CD7CBA50027FC58 /* Assets.xcassets */,
@@ -104,6 +92,34 @@
 				B50576101CD7CBA50027FC58 /* Info.plist */,
 			);
 			path = Breadboard;
+			sourceTree = "<group>";
+		};
+		B5A54A311CDAC915008DE89E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B543F89A1CD8755400ABB3DA /* BreadboardView.swift */,
+				B543F89C1CD8778B00ABB3DA /* CircuitGridView.swift */,
+				B543F89E1CD878BB00ABB3DA /* PlugView.swift */,
+				B5CD4B1F1CD93A1700003D12 /* ComponentView.swift */,
+				B5CD4B211CD9544000003D12 /* WireView.swift */,
+				B5CD4B231CD9B9BB00003D12 /* ResistorView.swift */,
+				B5CD4B251CD9BB1800003D12 /* LEDView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		B5A54A321CDAC924008DE89E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B50576161CD7CE920027FC58 /* Breadboard.swift */,
+				B505761E1CD80EF70027FC58 /* CircuitNodeGrid.swift */,
+				B505761A1CD7E6430027FC58 /* CircuitNode.swift */,
+				B50576181CD7E1EB0027FC58 /* Component.swift */,
+				B505761C1CD7FDA40027FC58 /* Resistor.swift */,
+				B5CD4B1B1CD9375C00003D12 /* Wire.swift */,
+				B5CD4B1D1CD9377B00003D12 /* LED.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
